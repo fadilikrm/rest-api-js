@@ -4,7 +4,7 @@ const app = express();
 const port = 4000;
 
 const url = 'mongodb://localhost:27017';
-const dbName = 'lms_db';
+const dbName = 'db_learning';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
