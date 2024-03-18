@@ -1,8 +1,11 @@
 const express = require('express');
 const { MongoClient, ObjectId } = require('mongodb');
 const app = express();
+
+// menetapkan port
 const port = 4000;
 
+// mengkonfigurasi database
 const url = 'mongodb://localhost:27017';
 const dbName = 'db_learning';
 
@@ -17,6 +20,7 @@ let client;
 
     const db = client.db(dbName);
 
+    // Membuat route Api dan response
     app.get('/admin', async (req, res) => {
       try {
         const adminCollection = db.collection('admin');
@@ -172,6 +176,7 @@ let client;
   }
 })();
 
+// Menjalankan server
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Internal Server Error');
